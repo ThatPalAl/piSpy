@@ -11,6 +11,7 @@ import googlemaps
 from datetime import datetime
 import wikipediaapi
 
+from piSpy.reminder import set_reminder
 from projekt.piSpy.wiki import Weather
 from piSpy.joke import get_joke, joke_or_fact
 
@@ -118,7 +119,8 @@ def display_menu():
     4. News for today
     5. Daily History
     6. Tell me a joke or fun fact
-    7. Exit"""
+    7. Set a reminder
+    8. Exit"""
     
     speak(menu_options)
     menu_label.config(text=menu_options)
@@ -144,6 +146,8 @@ def listen_for_menu_option():
         daily_history()
     elif "tell me a joke or fun fact" in command.lower() or command.strip() == "6":
         joke_or_fact()
+    elif "set a reminder" in command.lower() or command.strip() == "7":
+        set_reminder()
     elif "exit" in command.lower() or command.strip() == "7":
         speak("Goodbye!")
         root.quit()
